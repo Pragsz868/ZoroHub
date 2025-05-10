@@ -86,3 +86,10 @@ for i, t in ipairs(toggles) do
         t.OnToggle(state)
     end)
 end
+
+-- Cleanup when player leaves the game
+player.OnPlayerRemoving:Connect(function()
+    if gui then
+        gui:Destroy()  -- Clean up the GUI when the player leaves
+    end
+end)
